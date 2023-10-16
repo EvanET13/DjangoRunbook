@@ -1,0 +1,283 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.84.0">
+  
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/cover/">
+  
+    
+  
+    <!-- Bootstrap core CSS -->
+  <link href="/docs/5.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  
+    <!-- Favicons -->
+  <link rel="apple-touch-icon" href="/docs/5.0/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+  <link rel="icon" href="/docs/5.0/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="/docs/5.0/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+  <link rel="manifest" href="/docs/5.0/assets/img/favicons/manifest.json">
+  <link rel="mask-icon" href="/docs/5.0/assets/img/favicons/safari-pinned-tab.svg" color="#7952b3">
+  <link rel="icon" href="/docs/5.0/assets/img/favicons/favicon.ico">
+  <meta name="theme-color" content="#7952b3">
+  
+  
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      .card-body-custom{
+        background-color: #474949;
+      }
+  
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+  
+    
+    <!-- Custom styles for this template -->
+    <link href="cover.css" rel="stylesheet">
+</head>
+<body class="h-100 text-white bg-dark">
+    {% for xy in siteDetail  %}
+        <h1> Site Information for ID: {{xy.site_id}} - {{xy.site_name}}  ({{xy.site_short_name}})</h1>
+    {% endfor %}
+    <hr>
+
+    <center><a href="{% url 'All Sites' %}"> Back to Site Select Page</a></center>
+    <br><br>
+
+    <main>
+        <div class="album py-5 bg-dark">
+            <div class="container">
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                    <div class="col">
+                        <div class="card shadow-sm">
+                            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Site Detaisl" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Site Details</text></svg>
+                            <div class="card-body-custom">
+                                <p class="card-text">
+                                    {% for x in siteDetail %}
+                                        <ul>
+                                            <li><b>Site ID:</b> {{x.site_id}}</h6><br></li>
+                                            <li><b>Site Name:</b> {{x.site_name}}<br></li>
+                                            <li><b>Site Short Name:</b> {{x.site_short_name}}</li>
+                                            <li><b>Site Address: </b>{{x.site_address}}</li>
+                                            <li><b>Site City:</b> {{x.site_city}}</li>
+                                            <li><b>Site State:</b> {{x.site_zip}}</li>
+                                            <li><b>Site Latitude:</b> {{x.site_lat}}</li>
+                                            <li><b>Site Longitude:</b> {{x.site_long}}</li>
+                                            <li><b>Site Power:</b> {{x.site_power}}</li>
+                                            <li><b>Site Agent:</b> {{x.site_agent}}</li>
+                                            <li><b>Site Power Account:</b> {{x.site_power_account}}</li>
+                                            <li><b>Site Type:</b> {{x.site_type}}</li>
+                                            <li><b>Site Emergency Power:</b> {{x.site_emergency_power}}</li>
+                                            <li><b>Site have a Generator?:</b> {{x.site_generator}}</li>
+                                            <li><b>Site Notes:</b> {{x.site_notes}}</li>
+                                            <li><b>Site Access ID:</b> {{x.site_access_id}}</li>
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <div class="btn-group">
+                                                    <a type="button" class="btn btn-sm btn-outline-secondary" href="{% url 'Edit Site' x.site_id %}">Edit</a>
+                                                    <a type="button" class="btn btn-sm btn-outline-secondary" href="{% url 'Delete Site' x.site_id %}">Delete</a>
+                                                </div>
+                                            </div>
+                                        </ul>
+                                    {% endfor %}
+                                </p>     
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card shadow-sm">
+                            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: HVAC Detaisl" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">HVAC Details</text></svg>
+                            <div class="card-body-custom">
+                                <p class="card-text">
+                                    {% for y in hvacDetail %}
+                                        <ul>
+                                            <li><b>HVAC ID:</b> {{y.hvac_id}}</li>
+                                            <li><b>HVAC Name:</b> {{y.hvac_name}}</li>
+                                            <li><b>HVAC Type: </b>{{y.hvac_type}}</li>
+                                            <li><b>HVAC Filter Type: </b>{{y.hvac_filter_type}}</li>
+                                            <li><b>HVAC Install Date: </b>{{y.hvac_install_date}}</li>
+                                            <li><b>HVAC Serial: </b>{{y.hvac_serial}}</li>
+                                            <li><b>HVAC Service ID: </b>{{y.hvac_service_id}}</li>
+                                            <li><b>HVAC Site ID: </b>{{y.hvac_site_id}}</li>
+                                            <li><b>HVAC In Service: </b> {{y.hvac_in_service}}</li>
+                                            <li><b>HVAC Notes: </b>{{y.hvac_notes}}</li>
+                                            <li><b>HVAC Contact Name: </b>{{y.hvac_contact_first}} {{y.hvac_contact_last}}</li>
+                                            <li><b>HVAC Comapny Contact: </b>{{y.hvac_contact_company}}</li>
+                                            <li><b>HVAC Contact Phone Number: </b>{{y.hvac_contact_phone}}</li>
+                                            <li><b>HVAC Contact Cell Number: </b>{{y.hvac_contact_cell}}</li>
+                                            <li><b>HVAC Contact Email: </b>{{y.hvac_contact_email}}</li>
+                                            <li><b>HVAC Contact Afterhours: </b>{{y.hvac_contact_afterhours}}</li>
+                                            <li><b>HVAC Contact Notes: </b>{{y.hvac_contact_notes}}</li>
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <div class="btn-group">
+                                                    <a type="button" class="btn btn-sm btn-outline-secondary" href="{% url 'Edit HVAC' y.hvac_site_id %}">Edit</a>
+                                                </div>
+                                            </div>
+                                        </ul>
+                                        {% empty %}
+                                            Some sites are not owned by us and we rent rack space. An example of this are D-sites. There is a rare chance that we have forgotten to add the HVAC unit(s) to the
+                                            HVAC Information. <br> <br> Please use the button below to add HVAC Information.
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <div class="btn-group">
+                                                    <ul>
+                                                        <a type="button" class="btn btn-sm btn-outline-secondary" href="{% url 'Add HVAC' %}">Add</a>
+                                                    </ul>
+                                                </div>    
+                                            </div>
+                                    {% endfor %}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card shadow-sm">
+                            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Contacts" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Contacts</text></svg>
+                            <div class="card-body-custom">
+                                <p class="card-text">
+                                    {% for a in contactsDetail %}
+                                        <ul>
+                                            <li><b>Contact ID: </b>{{a.contact_id}}</li>
+                                            <li><b>Contact Name: </b>{{a.contact_first}} {{a.contact_last}}</li>
+                                            <li><b>Contact Phone: </b>{{a.contact_phone}}</li>
+                                            <li><b>Contact Extention: </b> {{a.contact_ext}}</li>
+                                            <li><b>Contact Cell: </b>{{a.contact_cell}}</li>
+                                            <li><b>Contact Email: </b>{{a.contact_email}}</li>
+                                            <li><b>Contact Afterhours: </b>{{a.contact_afterhours}}</li>
+                                            <li><b>Contact Notes: </b>{{a.contact_notes}}</li>
+                                            <li><b>Contact 24/7 Name: </b>{{a.contact_247_name}}</li>
+                                            <li><b>Contact 24/7 Phone: </b>{{a.contact_247_phone}}</li>
+                                            <li><b>Contact 24/7 Email: </b>{{a.contact_247_email}}</li>
+                                            <li><b>Contact 24/7 Notes: </b>{{a.contact_247_notes}}</li>
+                                            <li><b>Contact Site ID: </b>{{a.contact_site_id}}</li>
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <div class="btn-group">
+                                                    <a type="button" class="btn btn-sm btn-outline-secondary" href="{% url 'Edit Contacts' a.contact_site_id.site_id %}">Edit</a>
+                                                </div>
+                                            </div>
+                                        </ul>
+                                        {% empty %}
+                                            <p>There is no Contact Information.</p>
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <div class="btn-group">
+                                                    <ul>
+                                                        <a type="button" class="btn btn-sm btn-outline-secondary" href="{% url 'Add Contacts' %}">Add</a>
+                                                    </ul>
+                                                </div>    
+                                            </div>
+                                    {% endfor %}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card shadow-sm">
+                            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Battery Information" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Battery Information</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Battery Information</text></svg>
+                            <div class="card-body-custom">
+                                <p class="card-text">
+                                    {% for b in batteryDetail %}
+                                        <ul>
+                                            <li><b>Battery ID: </b>{{b.battery_id}}</li>
+                                            <li><b>Battery Brand Name: </b>{{b.battery_name}}</li>
+                                            <li><b>Battery Type: </b>{{b.battery_type}}</li>
+                                            <li><b>Battery Serial Number: </b>{{b.battery_serial}}</li>
+                                            <li><b>Battery Install Date: </b>{{b.battery_install_month}} / {{b.battery_install_year}}</li>
+                                            <li><b>Battery Count: </b>{{b.battery_count}}</li>
+                                            <li><b>Battery Runtime in Minutes (approx.): </b>{{b.battery_runtime}}</li>
+                                            <li><b>Battery Site ID: </b>{{b.battery_site_id}}</li>
+                                            <li><b>Battery Notes: </b>{{b.battery_notes}}</li>
+                                            <a type="button" class="btn btn-sm btn-outline-secondary" href="{% url 'Edit Battery' b.battery_site_id %}">Edit</a>
+                                        </ul>
+                                        {% empty %}
+                                            Nothing to display, click below to add Battery Information.
+                                            <ul>
+                                                <a type="button" class="btn btn-sm btn-outline-secondary" href="{% url 'Add Battery' %}">Add Battery Information</a>
+                                            </ul>
+                                    {% endfor %}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card shadow-sm">
+                            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Relion Information" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Relion Information</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Relion Information</text></svg>
+                            <div class="card-body-custom">
+                                <p class="card-text">
+                                    {% for c in relionDetail %}
+                                        <ul>
+                                            <li><b>Relion ID: </b>{{c.relion_id}}</li>
+                                            <li><b>Relion Site Name: </b>{{c.relion_site_name}}</li>
+                                            <li><b>Relion Serial Number: </b>{{c.relion_serial}}</li>
+                                            <li><b>Relion Tank Replacement Date: </b>{{c.relion_tank_replacement}}</li>
+                                            <li><b>Relion Current PSI: </b>{{c.relion_curr_psi}}</li>
+                                            <li><b>Relion Current PSI Date: </b>{{c.relion_curr_psi_date}}</li>
+                                            <li><b>Relion Previous PSI: </b>{{c.relion_prev_psi}}</li>
+                                            <li><b>Relion Previous PSI Date: </b>{{c.relion_prev_psi_date}}</li>
+                                            <li><b>Relion Tank Contents: </b>{{c.relion_tank_contents}}</li>
+                                            <li><b>Relion Tank Size: </b>{{c.relion_tank_size}}</li>
+                                            <li><b>Relion Tank Quantity: </b>{{c.relion_tank_qty}}</li>
+                                            <li><b>Relion Site ID: </b>{{c.relion_site}}</li>
+                                            <li><b>Relion Notes: </b>{{c.relion_notes}}</li>
+                                            <li><b>Relion Contact Company: </b>{{c.relion_contact_company}}</li>
+                                            <li><b>Relion Contact Phone Number: </b>{{c.relion_contact_number}}</li>
+                                            <li><b>Relion Account Number: </b>{{c.relion_account_number}}</li>
+                                            <a type="button" class="btn btn-sm btn-outline-secondary" href="{% url 'Edit Relion' c.relion_site %}">Edit</a>
+                                        </ul>
+                                        {% empty %}
+                                            Nothing to display, click below to add Relion Information.
+                                            <ul>
+                                                <a type="button" class="btn btn-sm btn-outline-secondary" href="{% url 'Add Relion' %}">Add Relion Information</a>
+                                            </ul>
+                                    {% endfor %}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card shadow-sm">
+                            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Access Information" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Access Information</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Access Information</text></svg>
+                            <div class="card-body-custom">
+                                <p class="card-text">
+                                    {% for d in x.siteAccessDetail %}
+                                        <ul>
+                                            <li><b>Access ID: </b>{{d.site_access_id}}</li>
+                                            <li><b>Access Key Type: </b>{{d.site_access_keys}}</li>
+                                            <li><b>Access Alarm Code: </b>{{d.site_access_alarm_code}}</li>
+                                            <li><b>Access Door Code: </b>{{d.site_access_door_code}}</li>
+                                            <li><b>Access Physical Key: </b>{{d.site_access_physical_key}}</li>
+                                            <li><b>Access Physical Key Location: </b>{{d.site_access_physical_key_location}}</li>
+                                            <li><b>Access Rack Code: </b>{{d.site_access_rack_code}}</li>
+                                            <li><b>Access Gate Code: </b>{{d.site_access_gate_code}}</li>
+                                            <li><b>Access Additional Access Notes: </b>{{d.site_access_additional_access_notes}}</li>
+                                            <li><b>Access Additional Access Code: </b>{{d.site_access_additional_access_code}}</li>
+                                            <li><b>Access Notes: </b>{{d.site_access_notes}}</li>
+                                            <a type="button" class="btn btn-sm btn-outline-secondary" href="{% url 'Edit Access' d.site_access_id %}">Edit</a>
+                                        </ul>
+                                        {% empty %}
+                                            Nothing to display, click below to add Access Information.
+                                            <ul>
+                                                <a type="button" class="btn btn-sm btn-outline-secondary" href="{% url 'Add Access' %}">Add Access Information</a>
+                                            </ul>
+                                    {% endfor %}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> 
+    </main>  
+</body>
+{% endblock %}

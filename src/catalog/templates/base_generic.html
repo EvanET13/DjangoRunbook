@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="">
+      <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+      <meta name="generator" content="Hugo 0.84.0">
+      <title>CVIN Runbook</title>
+  
+      <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/album/">
+  
+      
+  
+      <!-- Bootstrap core CSS -->
+     <link href="/docs/5.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  
+      <!-- Favicons -->
+      <link rel="apple-touch-icon" href="/docs/5.0/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+      <link rel="icon" href="/docs/5.0/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+      <link rel="icon" href="/docs/5.0/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+      <link rel="manifest" href="/docs/5.0/assets/img/favicons/manifest.json">
+      <link rel="mask-icon" href="/docs/5.0/assets/img/favicons/safari-pinned-tab.svg" color="#7952b3">
+      <link rel="icon" href="/docs/5.0/assets/img/favicons/favicon.ico">
+      <meta name="theme-color" content="#7952b3">
+  
+      {% load django_bootstrap5 %}
+      {% load bootstrap5%}
+      {# Load Bootstrap CSS and JavaScript #}
+      {% bootstrap_css %}
+      {% bootstrap_javascript %}
+
+      {# Load Bootstrap alerts #}
+      {% bootstrap_messages %}
+
+      <title>{% block bootstrap5_title %}CVIN Runbook{% endblock %}</title>
+      <!-- Bootstrap JavaScript if it is in head -->
+      {% if 'javascript_in_head'|bootstrap_setting %}
+        {% bootstrap_javascript %}
+      {% endif %}
+
+      <style>
+        .bd-placeholder-img {
+          font-size: 1.125rem;
+          text-anchor: middle;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          user-select: none;
+        }
+        .navbar-custom {
+          color: black;
+          
+        }
+        .bg-custom{
+          background-color: rgb(37, 37, 197);
+        }
+
+        .navbar .navbar-toggler:focus {
+          color: #aa1c8b;
+        }   
+        
+        .custom-toggler .navbar-toggler-icon {
+          background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgb(0,0,0)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+        }
+
+        .custom-toggler.navbar-toggler {
+          border-color: rgb(0, 0, 0);
+        } 
+
+        @media (min-width: 768px) {
+          .bd-placeholder-img-lg {
+            font-size: 3.5rem;
+          }
+        }
+      </style>
+  
+      
+    </head>
+    <header>
+      <div class="bg-dark collapse" id="navbarHeader" style>
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-8 col-md-7 py-4">
+              <h4 class="text-white">About</h4>
+              <p class="text-muted">Add some information about the album below, the author, or any other background context. Make it a few sentences long so folks can pick up some informative tidbits. Then, link them off to some social networking sites or contact information.</p>
+            </div>
+            <div class="col-sm-4 offset-md-1 py-4">
+              <h4 class="text-white">Go to:</h4>
+              <ul class="list-unstyled">
+                <li><a href="/" class="text-white">Home</a></li>
+                <li><a href="/all_sites/" class="text-white">All Sites</a></li>
+                <li><a href="/add_a_site/" class="text-white">Add A Site</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="navbar navbar-dark bg-custom shadow-sm">
+        <div class="container">
+          <a href="/" class="navbar-brand d-flex align-items-center">
+            <img src="https://vastnetworks.com/wp-content/uploads/thegem-logos/logo_e6eb8c4ad50277ce7412e3efa70b364f_1x.png" alt="Vast Logo" width="200" height="79" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="me-2" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle>
+          </a>
+          <button class="navbar-toggler ml-auto custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+      {% load static %}
+      <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+        <body>
+          <div class="container">
+            {% block content %}{% endblock %}
+          </div>
+        </body>
+</html>

@@ -1,0 +1,38 @@
+{% extends 'base_generic.html' %}
+	
+{% block content %}
+
+<head>
+    <style>
+        form.a {
+            display: grid;
+            grid-template-rows: auto;
+            gap: 1rem;
+            list-style: square;
+            background: papayawhip;
+            padding: 20px;
+            box-sizing: content-box;
+            width: 100%;
+            border: solid;
+            
+        }
+
+        input.b {
+            background: lightblue;
+            padding: auto;
+        }
+
+		body {
+			background-color: lightblue;
+		  }
+    </style>
+</head>
+
+<h2> {% if id %} Edit {% else %} Add A {% endif %} Site's Relion Information</h2>
+<form class="a" method="post" novalidate>
+	{% csrf_token %}
+    {{ relion}}
+	<input class="b" type="submit" value="Save" />
+</form>
+
+{% endblock content %}
