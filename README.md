@@ -9,7 +9,7 @@
 ### Some common errors
 **Error:**  *That ==port== is already in use.*
 
-> **Solution:**  `linex ps -ef | grep python | grep 8001`
+> **Solution:**  `ps -ef | grep python | grep 8001`
 >**Returns:**
 
 >> ```
@@ -24,7 +24,7 @@
 
 **Error:**  *NoPermissions (FileSystemError): Error: EACCES: permission denied, open '/django-project/site/logs/help'*
 
->**Solution:**  `linex sudo chown -R {user} {directory path}`
+>**Solution:**  `sudo chown -R {user} {directory path}`
 
     
 service apache2 restart
