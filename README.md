@@ -1,4 +1,20 @@
 # DjangoRunbook
+This was a project I conducted and executed at CVIN dba Vast Networks. With the storage being on a dedicated database.
+
+It was designed for internal use for allowing techs to see information on a selected work site. Some information provided: 
+
+  <ul>
+  <li> Addresses </li>
+  <li> Contact information </li>
+  <li> Site name / Site nickname </li>
+  <li> HVAC details </li>
+  <li> UPS Battery Informaiton </li>
+  <li> Access to site </li>
+  </ul>
+
+
+
+
 
 ## Error List + Fixes 
 
@@ -33,4 +49,3 @@ python manage.py makemigrations
     python manage.py migrate
         python manage.py runserver {webiste IP}:8001
 
-[![built with Codeium](https://codeium.com/badges/main)](https://codeium.com)
